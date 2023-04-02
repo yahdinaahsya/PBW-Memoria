@@ -15,7 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landingpage');
+});
+
+Route::get('/kapsulwaktu', function () {
+    return view('kapsulwaktu');
 });
 
 Route::get('/dashboard', function () {
