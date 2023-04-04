@@ -68,32 +68,31 @@
 
         @yield('content')
     
-    <footer class="bg-[#E7ECFF]">
-        <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
-            <div class="sm:items-center sm:justify-center">
-                <a href="/" class="items-center text-center mb-4 sm:mb-0">
-                    <div class="flex justify-between">
-                        <p><span class="text-lg text-center" style="font-family: Dela Gothic One">Memoria</span></p>
-                        <ul class="flex items-center mb-6 text-sm text-gray-500 sm:mb-0">
-                            <li>
-                                <a href="/"
-                                    class="font-roboto text-gray-600 mr-4 hover:underline md:mr-6 ">Home</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="font-roboto text-gray-600 mr-4 hover:underline md:mr-6">About</a>
-                            </li>
-                            <li>
-                                <a href="#" class="font-roboto text-gray-600 hover:underline">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <hr class="border-gray-300 mx-auto" />
-                    <span class="block text-sm text-gray-500 sm:text-center">©2023 by Jelly Fish</span>
-                </a>
+        <footer class="bg-[#E7ECFF]">
+            <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+                <div class="sm:items-center sm:justify-center">
+                    <a href="/" class="items-center text-center mb-4 sm:mb-0">
+                        <div class="flex justify-between">
+                            <p><span class="text-lg text-center" style="font-family: Dela Gothic One">Memoria</span></p>
+                            <ul class="flex items-center mb-6 text-sm text-gray-500 sm:mb-0">
+                                <li>
+                                    <a href="/"
+                                        class="font-roboto text-gray-600 mr-4 hover:underline md:mr-6 ">Home</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="font-roboto text-gray-600 mr-4 hover:underline md:mr-6">About</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="font-roboto text-gray-600 hover:underline">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <hr class="border-gray-300 mx-auto" />
+                        <span class="block text-sm text-gray-500 sm:text-center">©2023 by Jelly Fish</span>
+                    </a>
+                </div>
             </div>
-        </div>
-    </footer>
-
+        </footer>
     </body>
 </html>
