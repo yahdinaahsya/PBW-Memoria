@@ -22,6 +22,18 @@ Route::get('/kapsulwaktu', function () {
     return view('kapsulwaktu');
 });
 
+Route::get('/abadikan', function () {
+    return view('abadikan');
+});
+
+Route::get('/random', function () {
+    return view('random');
+});
+
+Route::get('/kalender', function () {
+    return view('kalender');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
