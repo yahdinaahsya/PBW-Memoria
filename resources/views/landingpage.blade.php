@@ -17,7 +17,7 @@
         </p>
         <br>
         <p>
-            <a href="#" class ="bg-[#505F98] inline block p-3 px-19 text-center text-white font-medium font-Roboto">
+            <a href="/abadikan" class ="bg-[#505F98] inline block p-3 px-19 text-center text-white font-medium font-Roboto">
                 Simpan Momen Anda Disini
             </a>
         </p>
@@ -45,7 +45,7 @@
         </p>
         <br>
         <p>
-            <a href="#" class ="bg-[#111B47] inline block p-2 px-10 text-center text-white font-medium font-Roboto">
+            <a href="/kalender" class ="bg-[#111B47] inline block p-2 px-10 text-center text-white font-medium font-Roboto">
                 Lihat Momen
             </a>
         </p>
@@ -62,7 +62,7 @@
             </a>
         </div>
         <div class="p-10 my-10 mx-5 sm:mx-36 bg-gray-200 hover:bg-gray-300 rounded-3xl">
-            <a href="#">
+            <a href="random">
                 <img class="object-cover h-28 w-28" src="{{asset('/images_public/love.webp')}}">
                 <p class="font-bold text-xs text-center font-Roboto">Random Memori</p>
             </a>

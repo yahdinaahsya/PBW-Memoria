@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KapsulwaktuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,8 @@ Route::get('/', function () {
 Route::get('/kapsulwaktu', function () {
     return view('kapsulwaktu');
 });
+
+Route::post('/kapsulwaktu/input',[KapsulwaktuController::class,'store']);
 
 Route::get('/abadikan', function () {
     return view('abadikan');
