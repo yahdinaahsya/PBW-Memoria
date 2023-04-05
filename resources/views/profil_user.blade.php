@@ -18,7 +18,7 @@
             </span>
         </div>
         <div class="mt-6 w-fit mx-auto">
-            <img src="{{ asset('images_public/camera.png') }} class="rounded-full w-28 ">
+            <img src="{{ asset('images_public/bonekaUngu.png') }}" class="rounded-full w-28 ">
         </div>
 
         <div class="mt-8 ">
@@ -33,10 +33,12 @@
         </div>
 
         <div class="mt-3 text-white text-sm">
-            <span class="text-gray-400 font-semibold">Jumlah Momen:</span>
-            <span>100</span>
+            <span class="text-gray-400 font-semibold">Momen :</span>
+            <span>
+
+            </span>
             <p class="text-emerald-400 font-semibold mt-2.5" >
-            Kapsul :
+            Kapsul : {{$bykKapsul}}
             </p>
         </div>
 
