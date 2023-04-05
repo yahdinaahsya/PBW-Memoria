@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\kapsulwaktu;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -11,6 +12,13 @@ use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
+    
+    public function index(){
+        $semuaKapsul = kapsulwaktu::All();
+        // dd($semuaKapsul);
+        return view('profil_user', ['bykKapsul'=>count($semuaKapsul)]);
+    }
+
     /**
      * Display the user's profile form.
      */

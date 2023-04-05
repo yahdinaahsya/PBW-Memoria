@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\abadikanController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KapsulwaktuController;
 
 
 /*
@@ -24,6 +25,8 @@ Route::get('/kapsulwaktu', function () {
     return view('kapsulwaktu');
 });
 
+Route::post('/kapsulwaktu/input',[KapsulwaktuController::class,'store']);
+
 Route::get('/abadikan', function () {
     return view('abadikan');
 });
@@ -41,11 +44,14 @@ Route::get('/kalender', function () {
     return view('kalender');
 });
 
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/profil_user', [ProfileController::class, 'index']);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
