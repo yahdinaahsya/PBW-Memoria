@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\abadikanController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +26,11 @@ Route::get('/kapsulwaktu', function () {
 
 Route::get('/abadikan', function () {
     return view('abadikan');
+});
+Route::post('/simpan-momen', [abadikanController::class, 'store'])->name('simpan-momen');
+
+Route::get('/data', function () {
+    return view('dataMomen');
 });
 
 Route::get('/random', function () {
