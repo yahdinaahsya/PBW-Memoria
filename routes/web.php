@@ -37,6 +37,10 @@ Route::get('/kalender', function () {
     return view('kalender');
 });
 
+Route::get('/profil_user', function () {
+    return view('profil_user');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
