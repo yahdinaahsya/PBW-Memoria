@@ -6,7 +6,7 @@
 </div>
 <div class="text-gray-700 md:mx-20 mx-5 my-5 p-5 shadow-xl border border-gray-100 rounded-xl">
 	<!-- Component Start -->
-	<div class="flex flex-grow overflow-auto">
+	<div class="flex flex-grow overflow-auto"> 
             <div class="flex flex-col flex-grow">
                 <div class="flex items-center mt-4 justify-between">
                     <div class="flex">
@@ -53,6 +53,50 @@
         document.getElementById("currentYear").innerHTML = currYear;
     }
 
+    function getMemoriData() {
+        var backgroundClasses = ["bg-red-400", "bg-orange-400", "bg-amber-400", "bg-lime-400","bg-blue-400", "bg-green-400", "bg-yellow-400", "bg-purple-400", "bg-emerald-400", "bg-teal-400", "bg-cyan-400", "bg-sky-400", "bg-indigo-400", "bg-violet-400", "bg-fuchsia-400", "bg-pink-400", "bg-rose-400","bg-red-300", "bg-orange-300", "bg-amber-300", "bg-lime-300","bg-blue-300", "bg-green-300", "bg-yellow-300", "bg-purple-300", "bg-emerald-300", "bg-teal-300", "bg-cyan-300", "bg-sky-300", "bg-indigo-300", "bg-violet-300", "bg-fuchsia-300", "bg-pink-300", "bg-rose-300", "bg-red-200", "bg-orange-200", "bg-amber-200", "bg-lime-200","bg-blue-200", "bg-green-200", "bg-yellow-200", "bg-purple-200", "bg-emerald-200", "bg-teal-200", "bg-cyan-200", "bg-sky-200", "bg-indigo-200", "bg-violet-200", "bg-fuchsia-200", "bg-pink-200", "bg-rose-200"];
+
+        const dummyData = [
+            {
+                tanggal: 04,
+                memori: "Rindu"
+            },
+            {
+                tanggal: 04,
+                memori: "Bahagia"
+            },
+            {
+                tanggal: 17,
+                memori: "Sedih"
+            },
+            {
+                tanggal: 21,
+                memori: "Momen Terbaik"
+            },
+            {
+                tanggal: 28,
+                memori: "Tidak Tau"
+            },
+        ];
+
+        dummyData.forEach(function(element){
+            // console.log(element);
+            const nestedDiv = document.getElementById(element.tanggal);
+
+            // Create the first button element
+            const button1 = document.createElement('button');
+            button1.classList.add('flex', 'items-center', 'flex-shrink-0', 'py-2', 'text-xs', 'opacity-50','hover:opacity-100', backgroundClasses[Math.floor(Math.random()*backgroundClasses.length)], 'rounded');
+
+            const span1_3 = document.createElement('span');
+            span1_3.classList.add('ml-2', 'font-bold', 'leading-none', 'truncate');
+            span1_3.textContent = element.memori;
+            button1.appendChild(span1_3);
+
+            // Append the span elements to the nested div
+            nestedDiv.appendChild(button1);
+        });
+    }
+
     function generateDays(year, month){
         document.getElementById("tanggal").innerHTML = ""; // Bersihkan isi hari kalender
 
@@ -69,7 +113,7 @@
         {
             // Create the main div element
             const mainDiv = document.createElement('div');
-            mainDiv.classList.add('relative', 'flex', 'flex-col', 'bg-white', 'group', 'h-28', 'hover:border', 'border-black');
+            mainDiv.classList.add('relative', 'flex', 'flex-col', 'bg-white', 'hover:bg-purple-100','group', 'h-28');
 
             // Create the span element
             const span = document.createElement('span');
@@ -78,29 +122,8 @@
 
             // Create the nested div element
             const nestedDiv = document.createElement('div');
+            nestedDiv.id = i;
             nestedDiv.classList.add('flex', 'flex-col', 'px-1', 'py-1', 'overflow-auto', 'gap-px');
-
-            // Create the first button element
-            const button1 = document.createElement('button');
-            button1.classList.add('flex', 'items-center', 'flex-shrink-0', 'py-2', 'text-xs', 'hover:bg-gray-200', 'bg-red-300', 'rounded');
-
-            const span1_3 = document.createElement('span');
-            span1_3.classList.add('ml-2', 'font-medium', 'leading-none', 'truncate');
-            span1_3.textContent = 'Memori';
-            button1.appendChild(span1_3);
-
-            // Create the first button element
-            const button2 = document.createElement('button');
-            button2.classList.add('flex', 'items-center', 'flex-shrink-0', 'py-2', 'text-xs', 'hover:bg-gray-200', 'bg-blue-300', 'rounded');
-
-            const span2_3 = document.createElement('span');
-            span2_3.classList.add('ml-2', 'font-medium', 'leading-none', 'truncate');
-            span2_3.textContent = 'Memori';
-            button2.appendChild(span2_3);
-
-            // Append the span elements to the nested div
-            nestedDiv.appendChild(button1);
-            nestedDiv.appendChild(button2);
 
             // Append the span and nested div to the main div
             mainDiv.appendChild(span);
@@ -122,6 +145,7 @@
         }
         currMonth = (currMonth)%12;
         updateCalendar();
+        getMemoriData()
     }
 
     function minusMonth(){
@@ -130,10 +154,12 @@
             currYear = currYear - 1;
             currMonth = 11;
         }
-        updateCalendar()
+        updateCalendar();
+        getMemoriData();
     }
 
     generateDays(currYear, currMonth+1);
     updateLabel();
+    getMemoriData();
 </script>
 @endsection
