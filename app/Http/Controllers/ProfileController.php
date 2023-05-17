@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\kapsulwaktu;
+use App\Models\momen;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -13,10 +14,11 @@ use Illuminate\View\View;
 class ProfileController extends Controller
 {
     
-    public function index(){
+    public function show(){
         $semuaKapsul = kapsulwaktu::All();
+        $semuaMomen = momen::All();
         // dd($semuaKapsul);
-        return view('profil_user', ['bykKapsul'=>count($semuaKapsul)]);
+        return view('profil_user', ['bykKapsul'=>count($semuaKapsul), 'bykMomen'=>count($semuaMomen)]);
     }
 
     /**

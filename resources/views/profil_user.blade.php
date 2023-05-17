@@ -33,7 +33,7 @@
         </div>
 
         <div class="mt-3 text-white text-sm">
-            <span class="text-gray-400 font-semibold">Momen :</span>
+            <span class="text-gray-400 font-semibold">Momen : {{$bykMomen}}</span>
             <span>
 
             </span>
