@@ -7,7 +7,10 @@ use App\Models\Momen;
 use App\Models;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Str;
+use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Auth;
+use \Carbon\Carbon;
 
 class MomenController extends Controller
 {
@@ -59,10 +62,12 @@ class MomenController extends Controller
 
         $date = $request->tanggal;
         $formattedDate = date('Y-m-d H:i:s', strtotime($date));
-    
+        $tanggal = Carbon::now();
     //dd($request->all());
     //dd($image);
         Momen::create([
+            'id'=>(string)$tanggal->format('ymd').bin2hex(random_bytes(3)),
+            'user_id'=>Auth::user()->id,
             'tanggal' => $formattedDate,
             'judul' => $request->judul,
             'message' => $request->message,
@@ -105,4 +110,16 @@ class MomenController extends Controller
     {
         //
     }
+
+    /**
+     * Dapatkan momen secara acak
+     */
+    public function acak(Momen $momen)
+    {   
+        $momen = DB::table('momens')->where('user_id', Auth::user()->id)->pluck('id')->toArray();
+        shuffle($momen);
+        $randomMoment = reset($momen);
+        dd($randomMoment);
+    }        
+
 }
