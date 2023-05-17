@@ -44,6 +44,8 @@ Route::get('/kalender', function () {
     return view('kalender');
 });
 
+Route::get('/getmemori/info/{id}', [MomenController::class, 'getInfoMemori']);
+
 Route::get('/getmemori/{tahun}/{bulan}', [MomenController::class, 'getMemoriData']);
 
 Route::get('/dashboard', function () {
