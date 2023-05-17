@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\abadikanController;
+use App\Http\Controllers\MomenController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KapsulwaktuController;
 
@@ -30,7 +30,8 @@ Route::post('/kapsulwaktu/input',[KapsulwaktuController::class,'store']);
 Route::get('/abadikan', function () {
     return view('abadikan');
 });
-Route::post('/simpan-momen', [abadikanController::class, 'store'])->name('simpan-momen');
+
+Route::post('/simpan-momen', [MomenController::class, 'store']);
 
 Route::get('/data', function () {
     return view('dataMomen');

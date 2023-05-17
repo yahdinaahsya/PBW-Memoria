@@ -2,12 +2,23 @@
 
 @section('content')
 
+ <!-- Success Alert  -->
+ @if(session()->has('success'))
+    <div class="rounded-lg p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
+        {{session('success')}}
+    </div>
+@elseif(session()->has('failed'))
+    <div class="rounded-lg p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-green-400" role="alert">
+        {{session('failed')}}
+    </div>
+@endif
+    
 <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet" 
 <script src="../path/to/flowbite/dist/datepicker.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/datepicker.min.js"></script>
-<div class="m-8 text-3xl font-extrabold text-center">Abadikan Momenmu Disini</div>
+<div class="m-8 py-6 text-3xl font-extrabold text-center">Abadikan Momenmu Disini</div>
 
-<form class="m-8" action="{{route('simpan-momen')}}" method="post">    
+<form class="m-8" action="/simpan-momen" method="post" enctype="multipart/form-data">    
     @csrf
     <div class = "grid md:grid-cols-2 xl:mx-20">
         <div class="m-8 px-8">
@@ -46,7 +57,7 @@
     </div>  
 </div>  
     <div class="text-center mb-20">
-        <button type="abadikan" class="text-white font-Roboto bg-red-400 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Abadikan</button>
+        <button type="submit" class="text-white font-Roboto bg-red-400 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Abadikan</button>
     </div>  
 </form>
 
