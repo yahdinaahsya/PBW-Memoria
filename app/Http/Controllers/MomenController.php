@@ -23,6 +23,26 @@ class MomenController extends Controller
         return view('dataMomen');
     }
 
+    function getMemoriData($tahun,$bulan){
+        $bulan = $tahun.'-'.sprintf("%02d", $bulan);
+
+        $from = Carbon::parse($bulan)->startOfMonth();
+        $to = Carbon::parse($bulan)->endOfMonth();
+
+        $data = momen::where('user_id', Auth::user()->id)->whereBetween('tanggal',[$from, $to])->get();
+        $dataKeView =[];
+        foreach ($data as $key){
+            $tmp = array (
+                "tanggal" => Carbon::parse($key->tanggal)->format("d"),
+                "title" => $key->judul,
+                "message"=> $key->message
+            );
+
+            array_push($dataKeView, $tmp);
+        }
+        return response()->json($dataKeView);
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -95,14 +115,7 @@ class MomenController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateMomenRequest $request, Momen $momen)
-    {
-        //
-    }
-
+   
     /**
      * Remove the specified resource from storage.
      */
