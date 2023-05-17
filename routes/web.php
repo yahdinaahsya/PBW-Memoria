@@ -31,7 +31,6 @@ Route::get('/abadikan', function () {
     return view('abadikan');
 });
 
-Route::post('/simpan-momen', [MomenController::class, 'store']);
 
 Route::get('/data', function () {
     return view('dataMomen');
@@ -55,6 +54,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    
+    //Abadikan Momen
+    Route::post('/simpan-momen', [MomenController::class, 'store']);
+
+
+    //Acak memori
+    Route::get('/get-momen',[MomenController::class, 'acak']);
 });
 
 require __DIR__.'/auth.php';
