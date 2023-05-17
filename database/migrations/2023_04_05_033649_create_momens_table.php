@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('momens', function (Blueprint $table) {
             $table->id();
+            $table->string('user_id');
             $table->date('tanggal');
             $table->string('judul');
             $table->text('message');
