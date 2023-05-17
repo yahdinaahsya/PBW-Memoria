@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('momen', function (Blueprint $table) {
+        Schema::create('momens', function (Blueprint $table) {
             $table->id();
             $table->date('tanggal');
             $table->string('judul');
             $table->text('message');
-            $table->binary('gambar');
+            $table->string('gambar');
             $table->timestamps();
         });
-
     }
 
     /**
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('personal_access_tokens');
+        Schema::dropIfExists('momens');
     }
 };

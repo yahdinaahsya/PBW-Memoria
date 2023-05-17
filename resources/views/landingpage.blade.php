@@ -17,7 +17,7 @@
         </p>
         <br>
         <p>
-            <a href="/abadikan" class ="bg-[#505F98] inline block p-3 px-19 text-center text-white font-medium font-Roboto">
+            <a href="#" class ="bg-[#505F98] inline block p-3 px-19 text-center text-white font-medium font-Roboto">
                 Simpan Momen Anda Disini
             </a>
         </p>
@@ -45,7 +45,7 @@
         </p>
         <br>
         <p>
-            <a href="/kalender" class ="bg-[#111B47] inline block p-2 px-10 text-center text-white font-medium font-Roboto">
+            <a href="#" class ="bg-[#111B47] inline block p-2 px-10 text-center text-white font-medium font-Roboto">
                 Lihat Momen
             </a>
         </p>
