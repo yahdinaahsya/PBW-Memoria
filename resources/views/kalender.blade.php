@@ -1,140 +1,139 @@
 @extends('layout.app')
 
 @section('content')
-    <div class="text-gray-700">
-
-        <!-- Component Start -->
-        <div class="flex flex-grow w-screen h-screen overflow-auto">
-
-<ol class=" px-10 m-10 relative border-l border-gray-200 dark:border-gray-700">                  
-    <li class="mb-10 ml-4">
-        <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-        <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Juni 2021</time>
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Lolos UTBK</h3>
-        <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">Masuk USK</p>
-        <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">Learn more <svg class="w-3 h-3 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></a>
-    </li>
-    <li class="mb-10 ml-4">
-        <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-        <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">March 2022</time>
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">UTS Diskrit menyeramkan</h3>
-        <p class="text-base font-normal text-gray-500 dark:text-gray-400">ngeri kali.</p>
-    </li>
-    <li class="ml-4">
-        <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-        <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Mei 2022</time>
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">UAS Diskrit</h3>
-        <p class="text-base font-normal text-gray-500 dark:text-gray-400">suSahhhhh</p>
-    </li>
-</ol>
-
-
+<div class="flex justify-center">
+    <p class="text-4xl font-extrabold">Kalender Memori</p>
+</div>
+<div class="text-gray-700 md:mx-20 mx-5 my-5 p-5 shadow-xl border border-gray-100 rounded-xl">
+	<!-- Component Start -->
+	<div class="flex flex-grow overflow-auto">
             <div class="flex flex-col flex-grow">
-                <div class="flex items-center mt-2">
+                <div class="flex items-center mt-4 justify-between">
+                    <div class="flex">
+                        <h2 id="currentYear" class="ml-2 text-xl font-bold leading-none"></h2>
+                        <p id="currentMonth" class="ml-2 text-xl font-bold leading-none"></p>
+                    </div>
                     <div class="flex ml-6">
-                        <button>
-                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
+                        <button onClick="minusMonth()">
+                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                            </svg>
+                              </svg>
                         </button>
-                        <button>
-                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
+                        <button onClick="plusMonth()">
+                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                            </svg>
+                              </svg>
                         </button>
                     </div>
-                    <h2 class="ml-2 text-xl font-bold leading-none">September, 2020</h2>
                 </div>
-                <div class="grid grid-cols-7 mt-4">
-                    <div class="pl-1 text-sm">Mon</div>
-                    <div class="pl-1 text-sm">Tue</div>
-                    <div class="pl-1 text-sm">Wed</div>
-                    <div class="pl-1 text-sm">Thu</div>
-                    <div class="pl-1 text-sm">Fri</div>
-                    <div class="pl-1 text-sm">Sat</div>
-                    <div class="pl-1 text-sm">Sun</div>
+
+                <div class="md:grid md:grid-cols-7 mt-4 font-bold text-center hidden">
+                    <div class="pl-1 text-sm">Sunday</div>
+                    <div class="pl-1 text-sm">Monday</div>
+                    <div class="pl-1 text-sm">Tuesday</div>
+                    <div class="pl-1 text-sm">Wednesday</div>
+                    <div class="pl-1 text-sm">Thursday</div>
+                    <div class="pl-1 text-sm">Friday</div>
+                    <div class="pl-1 text-sm">Saturday</div>
                 </div>
-                <div id="tanggal" class="grid flex-grow w-full h-auto grid-cols-7 grid-rows-5 gap-px pt-px mt-1 bg-[#AC94FA]"> </div>
+
+                <div id="tanggal" class="grid flex-grow w-full h-auto md:grid-cols-7 grid-rows-5 gap-px pt-px mt-1 bg-gray-100 rounded-md"></div>
             </div>
         </div>
-        <!-- Component End  -->
+	<!-- Component End  -->
+</div>
+<script>
+    var d = new Date();
+    var currMonth = d.getMonth();
+    var currYear = d.getFullYear();
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-        <script>
-            var d = new Date();
-            var currMonth = d.getMonth();
-            var currYear = d.getFullYear();
-            const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    function updateLabel(){
+        document.getElementById("currentMonth").innerHTML = months[currMonth];
+        document.getElementById("currentYear").innerHTML = currYear;
+    }
 
-            function generateDays(year, month){
-                document.getElementById("tanggal").innerHTML = ""; // Bersihkan isi hari kalender
+    function generateDays(year, month){
+        document.getElementById("tanggal").innerHTML = ""; // Bersihkan isi hari kalender
 
-                // Dapatkan pada hari pada taggal pertama pada bulan yang sedang dibuka
-                const day = new Date(year, month - 1, 1);
-                for(let j = 0; j < day.getDay();j++){
-                    const emptyDiv = document.createElement("div");
-                    emptyDiv.classList.add('hidden', 'md:block');
-                    document.getElementById("tanggal").appendChild(emptyDiv);
-                }
-                
-                const jmlTanggal = new Date(year, month, 0).getDate(); // Dapatkan jumlah hari dalam bulan yang sedang dibuka
-                for (let i=1; i <= jmlTanggal; i++) {
-                    // Membuat elemen <div> utama
-                    const divMain = document.createElement('div');
-                    divMain.classList.add('relative', 'flex', 'flex-col', 'bg-white', 'group');
+        // Dapatkan pada hari pada taggal pertama pada bulan yang sedang dibuka
+        const day = new Date(year, month - 1, 1);
+        for(let j = 0; j < day.getDay();j++){
+            const emptyDiv = document.createElement("div");
+            emptyDiv.classList.add('hidden', 'md:block');
+            document.getElementById("tanggal").appendChild(emptyDiv);
+        }
 
-                    // Membuat elemen <span> tanggal
-                    const spanTanggal = document.createElement('span');
-                    spanTanggal.classList.add('mx-2', 'my-1', 'text-xs', 'font-bold');
-                    spanTanggal.textContent = '1 September';
-                    divMain.appendChild(spanTanggal);
+        const jmlTanggal = new Date(year, month, 0).getDate(); // Dapatkan jumlah hari dalam bulan yang sedang dibuka
+        for(let i = 1; i <= jmlTanggal; i++)
+        {
+            // Create the main div element
+            const mainDiv = document.createElement('div');
+            mainDiv.classList.add('relative', 'flex', 'flex-col', 'bg-white', 'group', 'h-28', 'hover:border', 'border-black');
 
-                    // Membuat elemen <div> container event
-                    const divEventContainer = document.createElement('div');
-                    divEventContainer.classList.add('flex', 'flex-col', 'px-1', 'py-1', 'overflow-auto');
-                    divMain.appendChild(divEventContainer);
+            // Create the span element
+            const span = document.createElement('span');
+            span.classList.add('mx-2', 'my-1', 'text-xs', 'font-bold');
+            span.textContent = i;
 
-                    // Membuat button event 1
-                    const buttonEvent1 = createEventButton('8:30am', 'An unconfirmed event');
-                    divEventContainer.appendChild(buttonEvent1);
+            // Create the nested div element
+            const nestedDiv = document.createElement('div');
+            nestedDiv.classList.add('flex', 'flex-col', 'px-1', 'py-1', 'overflow-auto', 'gap-px');
 
-                    // Membuat button event 2
-                    const buttonEvent2 = createEventButton('2:15pm', 'A confirmed event');
-                    divEventContainer.appendChild(buttonEvent2);
+            // Create the first button element
+            const button1 = document.createElement('button');
+            button1.classList.add('flex', 'items-center', 'flex-shrink-0', 'py-2', 'text-xs', 'hover:bg-gray-200', 'bg-red-300', 'rounded');
 
-                   
-                    // Fungsi untuk membuat button event
-                    function createEventButton(time, title) {
-                        const button = document.createElement('button');
-                        button.classList.add('flex', 'items-center', 'flex-shrink-0', 'h-5', 'px-1', 'text-xs', 'hover:bg-gray-200');
+            const span1_3 = document.createElement('span');
+            span1_3.classList.add('ml-2', 'font-medium', 'leading-none', 'truncate');
+            span1_3.textContent = 'Memori';
+            button1.appendChild(span1_3);
 
-                        const spanDot = document.createElement('span');
-                        spanDot.classList.add('flex-shrink-0', 'w-2', 'h-2', 'border', 'border-gray-500', 'rounded-full');
-                        button.appendChild(spanDot);
+            // Create the first button element
+            const button2 = document.createElement('button');
+            button2.classList.add('flex', 'items-center', 'flex-shrink-0', 'py-2', 'text-xs', 'hover:bg-gray-200', 'bg-blue-300', 'rounded');
 
-                        const spanTime = document.createElement('span');
-                        spanTime.classList.add('ml-2', 'font-light', 'leading-none');
-                        spanTime.textContent = time;
-                        button.appendChild(spanTime);
+            const span2_3 = document.createElement('span');
+            span2_3.classList.add('ml-2', 'font-medium', 'leading-none', 'truncate');
+            span2_3.textContent = 'Memori';
+            button2.appendChild(span2_3);
 
-                        const spanTitle = document.createElement('span');
-                        spanTitle.classList.add('ml-2', 'font-medium', 'leading-none', 'truncate');
-                        spanTitle.textContent = title;
-                        button.appendChild(spanTitle);
+            // Append the span elements to the nested div
+            nestedDiv.appendChild(button1);
+            nestedDiv.appendChild(button2);
 
-                        return button;
-                    }
+            // Append the span and nested div to the main div
+            mainDiv.appendChild(span);
+            mainDiv.appendChild(nestedDiv);
 
-                    // Contoh penggunaan:
-                    const containerElement = document.getElementById("tanggal");
-                    containerElement.appendChild(divMain);
-                }
-            }
+            document.getElementById("tanggal").appendChild(mainDiv);
+        }
+    }
 
-            generateDays(currYear, currMonth+1);
-            
-        </script>
+    function updateCalendar(){
+        generateDays(currYear, currMonth+1);
+        updateLabel();
+    }
 
-    </div>
+    function plusMonth(){
+        currMonth = (currMonth+1);
+        if(currMonth > 11){
+            currYear = currYear + 1;
+        }
+        currMonth = (currMonth)%12;
+        updateCalendar();
+    }
+
+    function minusMonth(){
+        currMonth = (currMonth-1);
+        if(currMonth < 0){
+            currYear = currYear - 1;
+            currMonth = 11;
+        }
+        updateCalendar()
+    }
+
+    generateDays(currYear, currMonth+1);
+    updateLabel();
+</script>
 @endsection
