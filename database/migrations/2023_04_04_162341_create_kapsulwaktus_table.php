@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('kapsulwaktus', function (Blueprint $table) {
             $table->id();
+            $table->string('user_id');
             $table->string('message');
             $table->date('tanggal');
             $table->string('email');

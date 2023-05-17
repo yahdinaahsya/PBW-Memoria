@@ -6,6 +6,7 @@ use App\Models\kapsulwaktu;
 use App\Http\Requests\StorekapsulwaktuRequest;
 use App\Http\Requests\UpdatekapsulwaktuRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class KapsulwaktuController extends Controller
 {
@@ -32,7 +33,7 @@ class KapsulwaktuController extends Controller
     {
         //
         //dd($request);
-        kapsulwaktu::create(['message'=>$request->message, 'tanggal'=>$request->tanggal, 'email'=>$request->email]);
+        kapsulwaktu::create(['user_id'=>Auth::user()->id, 'message'=>$request->message, 'tanggal'=>$request->tanggal, 'email'=>$request->email]);
         return redirect('/');
     }
 

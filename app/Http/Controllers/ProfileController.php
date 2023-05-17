@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\kapsulwaktu;
-use App\Models\momen;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
@@ -15,8 +15,8 @@ class ProfileController extends Controller
 {
     
     public function show(){
-        $semuaKapsul = kapsulwaktu::All();
-        $semuaMomen = momen::All();
+        $semuaKapsul = DB::table('kapsulwaktus')->where('user_id', Auth::user()->id)->get();
+        $semuaMomen = DB::table('momens')->where('user_id', Auth::user()->id)->get();
         // dd($semuaKapsul);
         return view('profil_user', ['bykKapsul'=>count($semuaKapsul), 'bykMomen'=>count($semuaMomen)]);
     }

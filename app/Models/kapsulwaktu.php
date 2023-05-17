@@ -9,6 +9,6 @@ class kapsulwaktu extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'message','tanggal','email'
+        'user_id','message','tanggal','email'
     ];
 }
