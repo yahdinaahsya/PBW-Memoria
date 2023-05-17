@@ -23,6 +23,11 @@ class MomenController extends Controller
         return view('dataMomen');
     }
 
+    function getInfoMemori($id){
+        $data = momen::where('id', $id)->get();
+        return response()->json($data[0]);
+    }
+
     function getMemoriData($tahun,$bulan){
         $bulan = $tahun.'-'.sprintf("%02d", $bulan);
 
@@ -35,7 +40,8 @@ class MomenController extends Controller
             $tmp = array (
                 "tanggal" => Carbon::parse($key->tanggal)->format("d"),
                 "title" => $key->judul,
-                "message"=> $key->message
+                "message"=> $key->message,
+                "id"=> $key->id
             );
 
             array_push($dataKeView, $tmp);

@@ -46,6 +46,7 @@
 <button data-modal-target="momenModal" data-modal-toggle="momenModal" class="hidden block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
   Toggle modal
 </button>
+
 <!-- Main modal -->
 <div id="momenModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative w-full max-w-2xl max-h-full">
@@ -53,9 +54,7 @@
         <div class="relative bg-[#E7ECFF] rounded-lg shadow dark:bg-gray-700">
             <!-- Modal header -->
             <div class="flex items-start justify-end p-4 border-b rounded-t dark:border-gray-950">
-                <h3 class=" text-xl font-semibold text-gray-900 dark:text-white">
-                    Tanggal
-                </h3>  
+                <h3 id="tanggalModal" class=" text-xl font-semibold text-gray-900 dark:text-white"></h3>  
               <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="momenModal">
                     <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                     <span class="sr-only">Close modal</span>
@@ -64,17 +63,18 @@
             <!-- Modal body -->
             <div class="p-6 space-y-6 grid grid-cols-2">
               <div>
-                <img class="h-auto max-w-full" src="{{ asset('/storage/app/public/posts/kol.jpg')}}">
+                <img id="gambar" class="h-auto max-w-full" src="#">
+
               </div>
               <div>
                   <div class="text-center font-bold">
-                      <h>JUDUL</h1>
+                      <h id="judulModal" class="uppercase"></h1>
                   </div>
                   <div>
                       <h2 class="font-semibold">Deskripsi</h2>
                   </div>
                   <div>
-                      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum quasi aspernatur, repudiandae voluptatem, in reiciendis itaque deserunt nobis quas autem dicta aut. Itaque, sequi cupiditate? Eum earum eligendi natus ad.</p>
+                      <p id ="messageModal"></p>
                   </div>
               </div>
               
@@ -98,6 +98,21 @@
         document.getElementById("currentYear").innerHTML = currYear;
     }
 
+    function getInfoMemori(id){
+            $.ajax({
+                url:"/getmemori/info/"+id,
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data);
+                    document.getElementById("tanggalModal").innerHTML=data.tanggal;
+                    document.getElementById("judulModal").innerHTML=data.judul;
+                    document.getElementById("messageModal").innerHTML=data.message;
+                    document.getElementById("gambarModal").src="/storage/posts/"+data.gambar;
+                }
+            })
+    }
+
     function getMemoriData() {
         var backgroundClasses = ["bg-red-400", "bg-orange-400", "bg-amber-400", "bg-lime-400","bg-blue-400", "bg-green-400", "bg-yellow-400", "bg-purple-400", "bg-emerald-400", "bg-teal-400", "bg-cyan-400", "bg-sky-400", "bg-indigo-400", "bg-violet-400", "bg-fuchsia-400", "bg-pink-400", "bg-rose-400","bg-red-300", "bg-orange-300", "bg-amber-300", "bg-lime-300","bg-blue-300", "bg-green-300", "bg-yellow-300", "bg-purple-300", "bg-emerald-300", "bg-teal-300", "bg-cyan-300", "bg-sky-300", "bg-indigo-300", "bg-violet-300", "bg-fuchsia-300", "bg-pink-300", "bg-rose-300", "bg-red-200", "bg-orange-200", "bg-amber-200", "bg-lime-200","bg-blue-200", "bg-green-200", "bg-yellow-200", "bg-purple-200", "bg-emerald-200", "bg-teal-200", "bg-cyan-200", "bg-sky-200", "bg-indigo-200", "bg-violet-200", "bg-fuchsia-200", "bg-pink-200", "bg-rose-200"];
 
@@ -114,10 +129,10 @@
                     const button1 = document.createElement('button');
                     button1.classList.add('flex', 'items-center', 'flex-shrink-0', 'py-2', 'text-xs', 'opacity-50','hover:opacity-100', backgroundClasses[Math.floor(Math.random()*backgroundClasses.length)], 'rounded');
                     button1.addEventListener("click", function() {
-                        console.log("Hehe");
                         var modal = document.getElementById("momenModal");
                         modal.classList.remove('hidden');
                         modal.classList.add('flex');
+                        getInfoMemori(element.id);
                     });
 
                     const span1_3 = document.createElement('span');
