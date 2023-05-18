@@ -133,12 +133,13 @@ class MomenController extends Controller
     /**
      * Dapatkan momen secara acak
      */
-    public function acak(Momen $momen)
+    public function acak()
     {   
-        $momen = DB::table('momens')->where('user_id', Auth::user()->id)->pluck('id')->toArray();
-        shuffle($momen);
-        $randomMoment = reset($momen);
-        dd($randomMoment);
+        $momen = DB::table('momens')->where('user_id', Auth::user()->id)->pluck('id');
+        $shuffledMomen = $momen->shuffle();
+        $randomMoment = reset($shuffledMomen);
+        $data = momen::where('id', $randomMoment)->get();
+        return response()->json($data[0]);
     }        
 
 }
