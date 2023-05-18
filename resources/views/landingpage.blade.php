@@ -70,4 +70,30 @@
     </div>
 </div>
 
+<div class="p-10 bg-gray-200 my-20 w-full">
+    <p class="text-2xl text-center font-extrabold font-Roboto">About Us</p>
+    <div class="flex sm:flex-nowrap flex-wrap justify-center">
+        <div class="p-10 my-10 mx-5 sm:mx-36 bg-[#E7ECFF] hover:bg-gray-300 rounded-3xl">
+            <a href="https://www.instagram.com/yahdina_a/">
+                <div class="flex justify-center">
+                    <img src="/images_public/susanti.png" alt=""
+                    class="w-40 h-40 object-cover object-center rounded-full transform scale-75">
+                </div>
+                <p class="font-bold text-xs text-center font-Roboto">Yahdina Ahsya</p>
+                <p class="font-bold text-xs text-center font-Roboto">2108107010055</p>
+            </a>
+        </div>
+        <div class="p-10 my-10 mx-5 sm:mx-36 bg-[#E7ECFF] hover:bg-gray-300 rounded-3xl">
+            <a href="https://www.instagram.com/fatiya_rara/">
+                <div class="flex justify-center">
+                    <img src="/images_public/meimei.jpg" alt=""
+                    class="w-40 h-40 object-cover object-center rounded-full transform scale-75">
+                </div>
+                <p class="font-bold text-xs text-center font-Roboto">Fatiya Humaira Yunaz</p>
+                <p class="font-bold text-xs text-center font-Roboto">2108107010063</p>
+            </a>
+        </div>
+    </div>
+</div>
+
 @endsection

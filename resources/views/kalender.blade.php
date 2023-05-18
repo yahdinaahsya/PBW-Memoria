@@ -67,13 +67,10 @@
 
               </div>
               <div>
-                  <div class="text-center font-bold">
+                  <div class="text-center font-extrabold">
                       <h id="judulModal" class="uppercase"></h1>
                   </div>
-                  <div class="mx-4 mt-2">
-                      <h2 class="font-semibold">Deskripsi</h2>
-                  </div>
-                  <div class="mx-4">
+                  <div class="mx-4 mt-4">
                       <p id ="messageModal"></p>
                   </div>
               </div>

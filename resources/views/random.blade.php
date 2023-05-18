@@ -11,7 +11,7 @@
 </div>
 
 <div class="text-center mb-20">
-  <button data-modal-target="momenModal" data-modal-toggle="momenModal" type="submit" class="text-white font-Roboto bg-red-400 hover:bg-gray-800 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+  <button data-modal-target="momenModal" data-modal-toggle="momenModal" class="text-white font-Roboto bg-red-400 hover:bg-gray-800 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
     Acak
   </button>
 </div>  
@@ -19,7 +19,7 @@
 @endsection
 
 <!-- Main modal -->
-<div id="momenModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+<div id="momenModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative w-full max-w-2xl max-h-full">
         <!-- Modal content -->
         <div class="relative bg-[#E7ECFF] rounded-lg shadow dark:bg-gray-700">
@@ -38,11 +38,8 @@
                 <img id = "gambarModal" class="h-auto max-w-full" src="">
               </div>
               <div>
-                  <div class="text-center font-bold">
+                  <div class="text-center font-extrabold">
                       <h id="judulModal" class="uppercase"></h>
-                  </div>
-                  <div class="mx-4 mt-2">
-                      <h2 class="font-semibold">Deskripsi</h2>
                   </div>
                   <div class="mx-4">
                       <p id = "messageModal"></p>
@@ -60,14 +57,14 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    console.log("test");
+    //console.log("test");
     function getMomen(){
         $.ajax({
             url:"/get-momen",
             type: 'GET',
             dataType: 'json',
             success: function(data) {
-                console.log(data);
+                //console.log(data);
                 document.getElementById("tanggalModal").innerHTML=data.tanggal;
                 document.getElementById("judulModal").innerHTML=data.judul;
                 document.getElementById("messageModal").innerHTML=data.message;
@@ -84,6 +81,8 @@
         modal.setAttribute('aria-hidden', 'true');
         modal.removeAttribute('data-modal-toggle');
 
-        location.reload();
+        setTimeout(function() {
+            location.reload();
+        }, 500); // Jeda 500ms sebelum memuat ulang halaman
     }
 </script>
