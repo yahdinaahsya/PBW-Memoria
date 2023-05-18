@@ -12,7 +12,7 @@
 4. - Jika ingin menggunakan dump sql : Buat DB baru bernama 'proyekpbw' pada PHPMyAdmin lalu import file sqlnya. Setelah itu download file 'posts' pada gdrive lalu extract pada direktori 'storage\app', agar gambar bisa diakses. 
    - Jika tidak ingin menggunakan dump sql, lakukan 'php artisan migrate' pada terminal
 5. Jalankan `php artisan storage:link` agar gambar bisa tersimpan
-6. Jalankan `php artisan serve' serta `npm run dev`
+6. Jalankan `php artisan serve` serta `npm run dev`
 7. Aplikasi siap untuk digunakan
 8. Akun Dump 
     `email   : kola@gmail.com`
