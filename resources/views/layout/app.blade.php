@@ -69,7 +69,7 @@
                         <li>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf 
-                                <label  for="logout" class="block py-2 pl-3 pr-4 md:py-3 font-bold text-black rounded-xl hover:bg-gray-300">Sign out</label>
+                                <label  for="logout" class= "block py-2 p-4 md:py-2 font-bold text-white bg-red-500 rounded-xl md:border-2 border-white">Keluar</label>
                                 <input type="submit" id="logout" hidden/>
                             </form>
                             <!-- <a href="register" class="block py-2 pl-3 pr-4 md:py-3 font-bold text-black rounded-xl">Sign Out</a> -->
@@ -77,11 +77,11 @@
                         @else
                         <li>
                                 <a href="login" class="block py-2 pl-3 pr-4 md:py-2 text-black font-roboto font-bold rounded-xl hover:bg-gray-100 md:border-2 border-white ">
-                                    Login 
+                                    Masuk
                                 </a>
                         </li>
                         <li>
-                            <a href="register" class="block py-2 pl-3 pr-4 md:py-2 font-bold text-white bg-red-400 rounded-xl md:border-2 border-white ">Sign Up</a>
+                            <a href="register" class="block py-2 pl-3 pr-4 md:py-2 font-bold text-white bg-red-400 rounded-xl md:border-2 border-white ">Daftar</a>
                         </li>
                         @endif
                     </div>
