@@ -63,17 +63,17 @@
             <!-- Modal body -->
             <div class="p-6 space-y-6 grid grid-cols-2">
               <div>
-                <img id="gambar" class="h-auto max-w-full" src="#">
+                <img id="gambarModal" class="h-auto max-w-full" src="#">
 
               </div>
               <div>
                   <div class="text-center font-bold">
                       <h id="judulModal" class="uppercase"></h1>
                   </div>
-                  <div>
+                  <div class="mx-4 mt-2">
                       <h2 class="font-semibold">Deskripsi</h2>
                   </div>
-                  <div>
+                  <div class="mx-4">
                       <p id ="messageModal"></p>
                   </div>
               </div>
